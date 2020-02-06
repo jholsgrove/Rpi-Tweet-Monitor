@@ -1,0 +1,72 @@
+<html>   
+    <head>
+    <meta http-equiv="refresh" content="5" >
+    <link rel="icon" type="image/x-icon" href="https://highlight.net/images/logo/Highlight_FavIcon.png" />
+    <style>
+body {
+    text-align: center;
+    background-image:url(https://d33wubrfki0l68.cloudfront.net/images/backgrounds/41f210f2a71bc807aa87d00c3f54ec4f3f78ed6a/homebalcony2.jpg);
+    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+}
+ul  {
+    text-align: left;
+    width: 500px;
+    margin: auto;
+    list-style: none;
+}
+li {
+    border: 1px solid #999;
+    border-left-width: 10px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color:#FFF;
+}
+li.sentiment_positive {
+    border-left: 10px solid #69B369;
+}
+li.sentiment_negative {
+    border-left: 10px solid #E64444;
+}
+.tweet {
+    display: inline-block;
+    font-family: Helvetica;
+    width: 380px;
+    margin-left: 10px;
+}
+img {
+    width: 48px
+    height: 48px;
+    border-radius: 5px;
+    vertical-align: top;
+}
+h1 {
+    font-size: 2em;
+    color: #000;
+    font-weight:bold;
+}
+        </style>
+        <title>Latest #SeeClearly tweets</title>
+    </head>
+<body>
+
+    <ul>
+    <h1>Who's tweeting about <span style="color:FFF">#SeeClearly?<span></span></h1>
+    
+    {{#payload}}
+    <li class="sentiment_{{sentiment.text}}">
+        <img src = "{{tweet.user.profile_image_url}}">
+        <div class="tweet">
+            <div class="user"><strong>{{tweet.user.name}}</strong></div>
+            <div class="text">{{tweet.text}}</div>
+        </div>
+    </li>
+    {{/payload}}
+    
+    <small>Disclaimer: All of the tweets displayed are from third parties. If anything offensive shows up #itwasntme.</small>
+    </ul>
+</body>
+</html>
